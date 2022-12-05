@@ -14,7 +14,7 @@ resource "aws_launch_template" "ec2module_bastion" {
   image_id               = data.aws_ami.linux.id
   instance_type          = "t2.micro"
   vpc_security_group_ids = [var.webserver_security_group_id]
-  user_data              = filebase("script.sh")
+  user_data              = filebase64("script.sh")
 
   tags = {
     Name = "ec2_bastion"
